@@ -19,16 +19,16 @@ Vue.http.options.root = process.env.SERVER
 const store = new Vuex.Store(VuexStore)
 
 const router = new VueRouter({
-  routes
+    routes
 })
 
 sync(store, router)
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  store,
-  template: '<App/>',
-  components: {App}
+    el: '#app',
+    router,
+    store,
+    template: '<App/>',
+    components: {App}
 })
