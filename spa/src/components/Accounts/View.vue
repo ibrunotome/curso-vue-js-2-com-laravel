@@ -45,7 +45,9 @@
         name: 'accounts-view',
         methods: {
             remove: function (id) {
-                this.$router.push('/contas')
+                this.$store.dispatch('removeAccount', this.$route.params.id).then(() => {
+                    this.$router.push('/contas')
+                })
             }
         },
         computed: {
@@ -56,7 +58,7 @@
                 return this.account.bank || {}
             }
         },
-        created () {
+        created() {
             this.$store.dispatch('getAccount', this.$route.params.id)
         }
     }

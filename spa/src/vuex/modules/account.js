@@ -23,6 +23,15 @@ export default {
             Vue.http.get('api/accounts/' + id).then(response => {
                 context.commit('updateAccountView', response.data)
             })
+        },
+        newAccount(context, data) {
+            Vue.http.post('api/accounts/', data)
+        },
+        updateAccount(context, param) {
+            Vue.http.put('api/accounts/' + params.id, param.data)
+        },
+        removeAccount(context, id) {
+            Vue.http.delete('api/accounts/' + id)
         }
     }
 }
