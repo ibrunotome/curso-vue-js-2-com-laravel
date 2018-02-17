@@ -53,6 +53,7 @@ trait ApiControllerTrait
      */
     public function store(Request $request)
     {
+        $request->request->add(['bank_id' => 1]);
         $result = $this->model->create($request->all());
 
         return response()->json($result);
