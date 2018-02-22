@@ -21,29 +21,31 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr v-for="bank in banks.data">
+                    <tr v-for="(bank, $index) in banks.data">
                         <td class="valign-wrapper">
-                            {{ bank.title }} ({{ bank.code}})
+                            {{ $index + 1}} {{ bank.title }} ({{ bank.code}})
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <pagination></pagination>
+                <pagination totalPerPage="4" resource="banks"></pagination>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+    import Pagination from './../SharedComponents/Pagination'
+
     export default {
         name: 'banks',
+        components: {
+            'pagination': Pagination
+        },
         computed: {
             banks() {
                 return this.$store.state.bank.bankList;
             }
         },
-        created() {
-            this.$store.dispatch('getBanks')
-        }
     }
 </script>
