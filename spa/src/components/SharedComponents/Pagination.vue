@@ -18,18 +18,27 @@
         ],
         data: function () {
             return {
-                active: 1,
-                total: 4,
-                totalRegistries: 75
+                active: 1
+            }
+        },
+        computed: {
+            banks() {
+                return this.$store.state.bank.bankList;
+            },
+            total() {
+                return this.banks.last_page || 1
+            },
+            totalRegistries() {
+                return this.banks.total || 1
             }
         },
         methods: {
-            navigate: function(n) {
+            navigate: function (n) {
                 this.active = n
             }
         },
         created() {
-            this.$store.dispatch(this.resource)
+            this.$store.dispatch(this.resource, this.totalPerPage)
         }
     }
 </script>

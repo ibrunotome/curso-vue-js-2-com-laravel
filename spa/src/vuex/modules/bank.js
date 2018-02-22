@@ -2,18 +2,18 @@ import Vue from 'vue'
 
 export default {
     state: {
-        bankList: [],
+        bankList: []
     },
     mutations: {
-        updateBankList(state, data) {
+        updateBankList (state, data) {
             state.bankList = data
-        },
+        }
     },
     actions: {
-        getBanks(context) {
+        getBanks (context, config) {
             Vue.http.get('api/banks?limit=200').then(response => {
                 context.commit('updateBankList', response.data)
             })
-        },
+        }
     }
 }

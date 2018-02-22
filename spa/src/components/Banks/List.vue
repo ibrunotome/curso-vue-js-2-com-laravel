@@ -1,4 +1,4 @@
-<template>
+<template lang="html">
     <div class="row">
         <div class="content-header">
             <h1>Bancos
@@ -17,18 +17,18 @@
                 <table class="highlight">
                     <thead>
                     <tr>
-                        <th>Bancos</th>
+                        <th>bancos</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr v-for="(bank, $index) in banks.data">
                         <td class="valign-wrapper">
-                            {{ $index + 1}} {{ bank.title }} ({{ bank.code}})
+                            {{$index + 1}} - {{ bank.title }} ({{ bank.code }})
                         </td>
                     </tr>
                     </tbody>
                 </table>
-                <pagination totalPerPage="4" resource="banks"></pagination>
+                <pagination totalPerPage="25" resource="banks"></pagination>
             </div>
         </div>
     </div>
@@ -44,8 +44,8 @@
         },
         computed: {
             banks() {
-                return this.$store.state.bank.bankList;
+                return this.$store.state.pagination.getList
             }
-        },
+        }
     }
 </script>

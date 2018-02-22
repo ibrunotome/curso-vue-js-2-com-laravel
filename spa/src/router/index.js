@@ -5,7 +5,6 @@ import AccountsCreate from '../components/Accounts/Create'
 import AccountsEdit from '../components/Accounts/Edit'
 import BanksList from '../components/Banks/List'
 
-
 const routes = [
     {
         path: '/',
